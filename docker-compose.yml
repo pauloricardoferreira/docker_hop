@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  hop-server:
+    image: apache/hop:2.3.0
+    container_name: hop-server
+    environment:
+      HOP_OPTIONS: "-Xmx4096m -Dfile.encoding=UTF8"
+      HOP_SERVER_PORT: 8182
+    volumes:
+      # - ./config:/opt/config
+      - ./projetos:/opt/projetos/
+    ports:
+      - "8182:8182"
+    networks:
+      - hop
+      - postgres-prd
+
+networks:
+  hop:
+    external: true
+    name: hop
+  postgres-prd:
+    external: true
+    name: postgres-prd

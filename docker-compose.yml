@@ -9,7 +9,8 @@ services:
       HOP_SERVER_PORT: 8182
     volumes:
       # - ./config:/opt/config
-      - ./projetos:/opt/projetos/
+      #- ./projetos:/opt/projetos/
+      - hop_projetos:/opt/projetos/
     ports:
       - "8182:8182"
     networks:
@@ -23,3 +24,8 @@ networks:
   postgres-prd:
     external: true
     name: postgres-prd
+
+volumes:
+  hop_projetos:
+    external: true
+

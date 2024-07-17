@@ -1,0 +1,16 @@
+services:
+  hop-server:
+    image: hop-build-manual:1.0
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   args:
+    #     - IMAGE_VERSION=2.9.0
+    #     - ENVIRONMENT=dev
+    container_name: hop-server
+    # env_file:
+    #   - .env
+    # volumes:
+    #   - hop_projetos:/opt/projetos/
+    ports:
+      - "8182:8080"
